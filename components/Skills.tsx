@@ -6,31 +6,31 @@ const Skills: React.FC = () => {
   const categories: ('Design' | 'Development' | 'Database' | 'Soft Skills')[] = ['Design', 'Development', 'Database', 'Soft Skills'];
 
   return (
-    <section id="skills" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20 reveal">
-          <h2 className="text-4xl font-black text-gray-900 mb-4">Core Competencies</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            A versatile toolkit blending creative intuition with technical precision.
+    <section id="skills" className="py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-20 reveal">
+          <h2 className="text-6xl font-black uppercase tracking-tighter leading-none">Skills & <br /> Stack.</h2>
+          <p className="text-xl text-gray-500 max-w-sm font-medium mt-4">
+            My technical toolkit is ever-evolving, focused on modern workflows and high-performance output.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {categories.map((category, catIdx) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {categories.map((category, i) => (
             <div 
               key={category} 
-              className="p-10 rounded-[2.5rem] bg-gray-50 border border-gray-100 transition-all duration-500 hover:bg-white hover:shadow-2xl hover:border-blue-100 reveal"
-              style={{ transitionDelay: `${catIdx * 100}ms` }}
+              className="reveal p-8 border-4 border-black bg-white hover:bg-yellow-400 transition-colors duration-500 group"
+              style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <h3 className="text-xl font-black text-gray-900 mb-8 flex items-center gap-3">
-                <span className="w-3 h-3 bg-blue-600 rounded-full animate-pulse shadow-[0_0_10px_rgba(37,99,235,0.5)]"></span>
-                {category}
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {SKILLS.filter(s => s.category === category).map((skill, skillIdx) => (
+              <div className="w-12 h-12 bg-black rounded-lg mb-8 flex items-center justify-center text-white font-black group-hover:scale-110 transition-transform">
+                {category[0]}
+              </div>
+              <h3 className="text-2xl font-black uppercase tracking-tighter mb-6">{category}</h3>
+              <div className="flex flex-wrap gap-2">
+                {SKILLS.filter(s => s.category === category).map(skill => (
                   <span 
                     key={skill.name}
-                    className="px-5 py-2.5 bg-white border border-gray-200 text-gray-700 font-bold rounded-2xl text-sm hover:border-blue-400 hover:text-blue-600 hover:shadow-lg hover:-translate-y-1 transition-all cursor-default"
+                    className="px-3 py-1 border-2 border-black font-bold text-xs uppercase tracking-widest bg-white group-hover:bg-black group-hover:text-white transition-all"
                   >
                     {skill.name}
                   </span>
